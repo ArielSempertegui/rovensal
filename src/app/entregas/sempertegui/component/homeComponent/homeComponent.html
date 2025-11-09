@@ -1,0 +1,19 @@
+<div class="content d-flex justify-content-center align-items-center">
+    <div class="d-flex flex-column row g-4 w-100">
+        <div class="w-100 m-0 col-12 col-sm-8 col-md-6 col-lg-4 mb-5">
+            <form class="d-flex justify-content-center" (ngSubmit)="buscarProductosRouted()">
+                <input 
+                    type="search" 
+                    placeholder="Busca un producto" 
+                    [(ngModel)]="terminoBusqueda"
+                    name="busqueda"
+                />
+                <button type="submit">Buscar</button>
+            </form>
+            <div class="d-flex justify-content-center mt-5">
+              <a href="sempertegui/catalog" class="btn btn-primary">Ver catálogos</a>
+            </div>
+        </div>
+    </div>
+</div>
+

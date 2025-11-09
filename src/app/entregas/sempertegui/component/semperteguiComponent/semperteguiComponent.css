@@ -1,2 +1,16 @@
 /* Styles for SemperteguiComponent */
+:host {
+    --content-padding: 20px;
+    --primary-color:#1c2e38;
+    --secondary-color: #fbe2a7;
+    --accent-color: #c67b96;
+    --shadow-color: #f3e3ea; 
+}
+
 h2 { color: #2a6f97; }
+
+header {
+  height: 60px;
+  padding: var(--content-padding);
+  box-shadow: 0px 5px 25px var(--shadow-color);
+}

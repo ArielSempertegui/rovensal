@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>
+    <table class="table table-striped">
+        <tr>
+            <th>ID:</th>
+            <td>{{data.id}}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{data.description}}</td>
+        </tr>
+        <tr>
+            <th>discountPercentage</th>
+            <td>{{data.discountPercentage}}</td>
+        </tr>
+        <tr>
+            <th>stock</th>
+            <td>{{data.stock}}</td>
+        </tr>
+        <tr>
+            <th>weight</th>
+            <td>{{data.weight}}</td>
+        </tr>
+        <tr>
+            <th>Warranty</th>
+            <td>{{data.warrantyInformation}}</td>
+        </tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button matButton mat-dialog-close>Close</button>
+</mat-dialog-actions>
