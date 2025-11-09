@@ -2,12 +2,11 @@ import { Component, inject } from '@angular/core';
 import { Product } from '../../model/productsInterface'
 import { MatButtonModule } from '@angular/material/button';
 import {
-  MatDialog,
   MAT_DIALOG_DATA,
+  MatDialogTitle,
+  MatDialogContent,
   MatDialogActions,
   MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 
 @Component({

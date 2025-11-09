@@ -1,32 +1,24 @@
 <h2 mat-dialog-title>{{data.title}}</h2>
 <mat-dialog-content>
-    <table class="table table-striped">
-        <tr>
-            <th>ID:</th>
-            <td>{{data.id}}</td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td>{{data.description}}</td>
-        </tr>
-        <tr>
-            <th>discountPercentage</th>
-            <td>{{data.discountPercentage}}</td>
-        </tr>
-        <tr>
-            <th>stock</th>
-            <td>{{data.stock}}</td>
-        </tr>
-        <tr>
-            <th>weight</th>
-            <td>{{data.weight}}</td>
-        </tr>
-        <tr>
-            <th>Warranty</th>
-            <td>{{data.warrantyInformation}}</td>
-        </tr>
-    </table>
+    @if(data.brand){
+        <span>Marca:</span>
+        <p>{{data.brand}}</p>
+    }
+    <span>Descripción:</span>
+    <p>{{data.description}}</p>
+    <div class="d-flex">
+        <div class="d-inline-block w-25">
+            <span>Peso:</span>
+            <p>{{data.weight}} libras</p>
+        </div>
+        <div class="d-inline-block w-25 mx-5">
+            <span>Dimensiones:</span>
+            <p>{{data.dimensions.width}} inch<br>{{data.dimensions.height}} inch<br>{{data.dimensions.depth}} inch</p>
+        </div>
+    </div>
+    <span>Código:</span>
+    <p>{{data.sku}}</p>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button matButton mat-dialog-close>Close</button>
+    <button matButton mat-dialog-close>Cerrar</button>
 </mat-dialog-actions>

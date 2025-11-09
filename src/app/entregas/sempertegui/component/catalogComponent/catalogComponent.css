@@ -3,15 +3,12 @@
   padding: var(--content-padding);
 }
 
-form{
-  margin-bottom: 10px;
-}
-
 input[type="search"] {
   border: solid 1px var(--secondary-color);
   padding: 10px;
   border-radius: 8px;
   margin-right: 4px;
+  width: 60%;
 }
 
 input[type="search"]:focus{
@@ -20,7 +17,6 @@ input[type="search"]:focus{
 }
 
 button[type="submit"] {
-  margin-right: 30px;
   padding: 10px;
   border: solid 1px var(--secondary-color);
   background: var(--secondary-color);
