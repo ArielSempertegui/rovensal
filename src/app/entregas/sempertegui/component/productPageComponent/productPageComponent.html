@@ -1,40 +1,72 @@
-<p>product Page Component works!</p>
+<p class="mt-4"><a href="sempertegui/catalog"><mat-icon aria-hidden="false" aria-label="Arrow left icon">arrow_back</mat-icon></a></p>
 
-
-<div id="carouselExample" class="carousel slide w-50">
-    <div class="carousel-indicators bg-black">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner"  style="border:1px solid red">
-        @for(img of product.images; track img; let i = $index){
-            @if(i === 0){
-                <div class="carousel-item active">
-                    <img [src]="img" class="d-block w-100" [alt]="product.title">
-                </div>
-            } @else {
-                <div class="carousel-item">
+<section class="d-flex" style="border:5px solid green">
+    <div id="carouselExample" class="carousel slide w-50" style="border:5px solid orange">
+        <div class="carousel-indicators">
+            @if(product && product.images && product.images.length > 1){
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active bg-dark" aria-current="true" aria-label="Slide 1"></button>
+                @for(img of product.images.slice(0, -1); track img; let i = $index){
+                    <button type="button" data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i + 1" class="bg-dark" [attr.aria-label]="'Slide '+ (i + 2)"></button>
+                }
+            }
+        </div>
+        <div class="carousel-inner">
+            @for(img of product.images; track img; let i = $index){
+                <div class="carousel-item {{ i === 0 ? 'active' : '' }}">
                     <img [src]="img" class="d-block w-100" [alt]="product.title">
                 </div>
             }
+        </div>
+        @if(product && product.images && product.images.length > 1){
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon text-dark" aria-hidden="false"><i class="bi bi-chevron-left"></i></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon text-dark" aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         }
     </div>
-    <button class="carousel-control-prev" type="button"   style="border:1px solid red" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon text-danger" aria-hidden="false"><mat-icon aria-hidden="false" aria-label="Arrow left icon">arrow_back</mat-icon></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon text-danger" aria-hidden="true"><mat-icon aria-hidden="false" aria-label="Arrow right icon">arrow_forward</mat-icon></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
-
-
-
-    <!-- @for(img of product.images; track img){
-        <tr>
-            <td><img [src]="img" alt="Imagen del producto"></td>
-        </tr>
-    } -->
+    <div class="w-50 p-2" style="border:6px solid red">
+        <div>
+            <p class="fw-bold fs-5">
+                {{ product.title }} 
+                {{ product.brand ? (`- ${product.brand}`) : '' }}
+            </p>
+        </div>
+        <div>
+            <div class="d-flex fw-bold fs-5">
+                <p>{{product.price}} € </p>
+                <div class="mx-4">
+                    @for(star of [1,2,3,4,5]; track star; let i = $index){
+                        <span>
+                            <i class="bi text-warning"
+                                [class.bi-star-fill]="product.rating >= i + 1"
+                                [class.bi-star-half]="product.rating > i && product.rating < i + 1"
+                                [class.bi-star]="product.rating <= i">
+                            </i>
+                        </span>
+                    }
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>{{product.description}}</p>
+        </div>
+        <div class="d-flex">
+            <div class="d-inline-block w-25">
+                <span>Peso:</span>
+                <p>{{product.weight}} libras</p>
+            </div>
+            <div class="d-inline-block w-25 mx-5">
+                <span>Dimensiones:</span>
+                @if(product.dimensions){
+                    <p>{{product.dimensions.width}} inch<br>{{product.dimensions.height}} inch<br>{{product.dimensions.depth}} inch</p>
+                }
+            </div>
+        </div>
+        <span>Código:</span>
+        <p>{{product.sku}}</p>
+    </div>
+</section>

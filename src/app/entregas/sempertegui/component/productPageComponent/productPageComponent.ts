@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiCallService } from '../../services/api-call-service';
 import { Product } from '../../model/productsInterface';
 import { MatIcon } from '@angular/material/icon';
+import { RouterModule } from '@angular/router'
 
 @Component({
   selector: 'app-product-page',
-  imports: [MatIcon],
+  imports: [RouterModule, MatIcon],
   templateUrl: './productPageComponent.html',
   styleUrl: './productPageComponent.css',
 })
@@ -14,6 +15,8 @@ export class ProductPageComponent {
 
   id: number | null = null;
   product: Product = {} as Product;
+  rating: number = 3.5;
+
 
   constructor(private route: ActivatedRoute, private apiCall: ApiCallService){
     this.id = Number(this.route.snapshot.params['id'])
@@ -24,8 +27,10 @@ export class ProductPageComponent {
   }
 
   getProductById(){
-    this.apiCall.getProductById(this.id).subscribe((product: Product) => {
-      this.product = product;
+    this.apiCall.getProductById(this.id).subscribe({
+      next: (product: Product) => this.product = product,
+      error: err => console.error(err),
+      complete: () => console.log("Los datos han llegado")
     })
   }
 
