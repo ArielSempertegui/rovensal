@@ -31,9 +31,16 @@
             }
         </div>
     </section>
-    
 </nav>
-<div class="container py-5">
-    <h1 class="text-center mb-5">Catálogo de Productos</h1>
+<section class="container">
+    <div class="d-flex aling-items-center mt-2">
+        <a href="sempertegui/home" id="volver">
+            <mat-icon aria-hidden="false" aria-label="Arrow left icon">arrow_back</mat-icon>
+        </a>
+        <label onclick="document.getElementById('volver').click()" class="ms-2" style="cursor:pointer">
+            Volver al Home
+        </label>
+    </div>
+    <h2 class="text-center mb-5">Catálogo de Productos</h2>
     <app-product-list [terminoBusqueda]="terminoBusqueda" [categoriaSeleccionada]="categoriaSeleccionada" />
-</div>
+</section>

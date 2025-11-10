@@ -4,10 +4,11 @@ import { ApiCallService } from '../../services/api-call-service';
 import { Product } from '../../model/productsInterface';
 import { MatIcon } from '@angular/material/icon';
 import { RouterModule } from '@angular/router'
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-product-page',
-  imports: [RouterModule, MatIcon],
+  imports: [RouterModule, MatIcon, DatePipe],
   templateUrl: './productPageComponent.html',
   styleUrl: './productPageComponent.css',
 })

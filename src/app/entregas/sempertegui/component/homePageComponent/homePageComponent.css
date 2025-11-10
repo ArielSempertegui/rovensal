@@ -1,6 +1,6 @@
 .content {
   padding: var(--content-padding);
-  height: 70vh;
+  height: 60vh;
 }
 
 input[type="search"] {

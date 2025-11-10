@@ -35,6 +35,7 @@ export class ProductListComponent {
 
 get ProductosFiltrados(): Product[] {
   return this.products.filter(p => {
+
     const coincideBusqueda = this.terminoBusqueda
       ? p.title.toLowerCase().includes(this.terminoBusqueda.toLowerCase())
       : true;

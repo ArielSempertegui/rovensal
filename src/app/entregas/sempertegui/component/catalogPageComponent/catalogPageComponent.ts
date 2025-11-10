@@ -22,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class CatalogPageComponent {
 
   terminoBusqueda: string | null = '';
-  terminoBusquedaSubmit: string = '';
+  terminoBusquedaSubmit: string | null = '';
   isChecked: boolean = false;
 
   categoriaSeleccionada: string | null = null;
@@ -33,6 +33,7 @@ export class CatalogPageComponent {
   ngOnInit(){
     this.getProducts();
     this.buscarProductosRouted();
+    this.terminoBusquedaSubmit = this.terminoBusqueda
   }
 
   getProducts(){
